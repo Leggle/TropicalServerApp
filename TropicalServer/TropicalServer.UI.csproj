@@ -101,6 +101,7 @@
     <Content Include="UI\ForgotPassword.aspx" />
     <Content Include="UI\JS_Functions.js" />
     <Content Include="UI\Login.aspx" />
+    <Content Include="UI\Logout.aspx" />
     <Content Include="UI\Products.aspx" />
     <Content Include="UserControls\UserInfoBoxControl1.ascx" />
     <Content Include="Web.config">
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="UI\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
