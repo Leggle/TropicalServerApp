@@ -112,7 +112,7 @@
 }
 
 #newpasswordtextbox{
-    width:250px;
+    width:200px;
 	margin-top: 20px;
 	margin-left: 10px;
 }
@@ -135,6 +135,8 @@
 #loginButton
 {
 	margin-left: 50px;
+    background-color:black;
+    color:white;
 }
 
 #forgot

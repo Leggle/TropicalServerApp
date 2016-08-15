@@ -13,3 +13,8 @@ D:\Suma\Summitworks\Suma Training\TO TRANSFER\.Net Projects from Chii\Tropical C
 D:\Suma\Summitworks\Suma Training\TO TRANSFER\.Net Projects from Chii\Tropical Cheese Project\TropicalServer\TropicalServer\TropicalServer.DAL\obj\Debug\ResolveAssemblyReference.cache
 D:\Suma\Summitworks\Suma Training\TO TRANSFER\.Net Projects from Chii\Tropical Cheese Project\TropicalServer\TropicalServer\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.dll
 D:\Suma\Summitworks\Suma Training\TO TRANSFER\.Net Projects from Chii\Tropical Cheese Project\TropicalServer\TropicalServer\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.pdb
+C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\bin\Debug\TropicalServer.DAL.dll
+C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\bin\Debug\TropicalServer.DAL.pdb
+C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.dll
+C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.pdb
+C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.csprojResolveAssemblyReference.cache

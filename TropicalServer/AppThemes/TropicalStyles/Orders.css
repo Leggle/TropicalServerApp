@@ -7,11 +7,12 @@
     padding:9px;
     margin-top:5px;
     height:20px;
+    width:100%
 }
 #CriteriaBar .Criteria
 {
     text-align:center;
-    width:240px;
+    width:230px;
     margin:0;
     float:left;
 }
@@ -23,8 +24,9 @@
 {
     width:100px;
 }
-#grid 
+.grid 
 {
+    color:white;
     width:100%;
     text-align:center;
     height:550px;
@@ -33,16 +35,17 @@
 .gvOrders 
 {
     margin:3px auto;
-    width:99%;
+    width:auto
+    /*width:99%;*/
 }
-.gvOrders th
+.gvOrdersth
 {
     color:#FFFFFF;
     background-color:#3B8FA7;
     border:2px solid #FFFFFF;
     border-bottom:5px solid #FFFFFF;
 }
-.gvOrders td
+.gvOrderstd
 {
     border:2px solid #FFFFFF;
     padding-left:10px;

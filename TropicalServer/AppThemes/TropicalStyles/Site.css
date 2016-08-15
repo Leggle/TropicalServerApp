@@ -200,6 +200,8 @@ div.menu ul li a:active
 .RepeaterRow
 {
     background-color:#4C787E; 
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 .Routeslkb

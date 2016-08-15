@@ -10,6 +10,26 @@
     padding-right:auto;
 }
 
+#sideBarbutton2
+{
+    height:20px;
+    width:160px;
+    background-color:#4C787E;
+    border-style:none;
+    color:White;
+    margin-top:5px;
+}
+
+#sideBarbutton
+{
+    height:20px;
+    width:160px;
+    background-color:#4C787E;
+    border-style:none;
+    color:White;
+    margin-top:10px;
+}
+
 .productCategoriesLabel
 {
     margin-top:5px;

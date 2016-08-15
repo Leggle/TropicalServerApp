@@ -25,10 +25,17 @@
         <form id="BodyDetail" runat="server" name="myForm" >
             <h1 id="Loginlbl">MOBILE CUSTOMER ORDER TRACKING</h1>
             <div id="loginBox">
+                
                 <label id="useridlbl">Login ID</label>
+                
                 <asp:TextBox runat="server" id="useridtextbox"  name="userid" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                    ControlToValidate="useridtextbox" ErrorMessage="*" EnableClientScript="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                 <label id="passwordlbl">Password</label>
+                
                 <asp:TextBox runat="server" TextMode="Password" id="passwordtextbox" name="userpassword"  />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                    ControlToValidate="passwordtextbox" ErrorMessage="*" EnableClientScript="false" ForeColor="#FF3300"></asp:RequiredFieldValidator>
 
                 <div id="login">
                     <label style="color:gray">Remember my ID</label><asp:CheckBox runat="server" id="RememberMyID" />

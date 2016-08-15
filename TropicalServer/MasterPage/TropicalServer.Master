@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TropicalServer.master.cs" Inherits="TropicalServer.MasterPage.TropicalServer" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
+<%--<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>--%>
 
 
 
@@ -9,7 +9,9 @@
 <head id="Head" runat="server">
     <title></title>
     <link href="~/AppThemes/TropicalStyles/Site.css" rel="stylesheet" type="text/css" />
-    
+    <link href="~/AppThemes/TropicalStyles/Products.css" rel="stylesheet" type="text/css" />
+    <link href="~/AppThemes/TropicalStyles/Orders.css" rel="stylesheet" type="text/css" />
+
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
 
     </asp:ContentPlaceHolder>
@@ -28,16 +30,16 @@
                           IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/UI/Products.aspx" Text="Products"/>
-                      <%--  <asp:MenuItem NavigateUrl="~/Settings.aspx" Text="Settings"/>
-                        <asp:MenuItem NavigateUrl="~/Routes.aspx" Text="Routes"/>--%>
+                        <asp:MenuItem NavigateUrl="~/UI/Order.aspx" Text="Orders"/>
+                        <%--<asp:MenuItem NavigateUrl="~/Routes.aspx" Text="Routes"/>--%>
                     </Items>
                 </asp:Menu>
             </div>
         </div>
 
         <div class="main">
-            <ajax:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-            </ajax:ToolkitScriptManager>
+<%--            <ajax:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+            </ajax:ToolkitScriptManager>--%>
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
 
