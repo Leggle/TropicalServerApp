@@ -19,6 +19,13 @@ namespace TropicalServer.UI
             }
         }
 
+        private void dataBind()
+        {
+            DataSet itemData = getItemData("orderJoinCustomer");
+            GridView1.DataSource = itemData;
+            GridView1.DataBind();
+        }
+
         private DataSet getItemData(string procedure)
         {
             string con = System.Configuration.ConfigurationManager.
@@ -37,15 +44,7 @@ namespace TropicalServer.UI
             return ds;
         }
 
-        private void dataBind()
-        {
-            DataSet itemData = getItemData("orderJoinCustomer");
-            GridView1.DataSource = itemData;
-            GridView1.DataBind();
-        }
-
-        private DataSet updateItemData(string procedure, string orderTracking,
-            /*DateTime orderDate,*/ int custNo/*, string custName, string custAddress, int custRouteNo*/)
+        private DataSet updateItemData(string procedure, string orderTracking, DateTime orderdate, int custNo)
         {
             string con = System.Configuration.ConfigurationManager.
                 ConnectionStrings["SampleCon"].ConnectionString;
@@ -54,11 +53,8 @@ namespace TropicalServer.UI
 
             SqlCommand cmd = new SqlCommand(procedure, sqlcon);
             cmd.Parameters.Add("@OrderTrackingNo", SqlDbType.VarChar).Value = orderTracking;
-            //cmd.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = orderDate;
             cmd.Parameters.Add("@CustNumber", SqlDbType.Int).Value = custNo;
-            //cmd.Parameters.Add("@CustName", SqlDbType.VarChar).Value = custName;
-            //cmd.Parameters.Add("@CustOfficeAddress", SqlDbType.VarChar).Value = custAddress;
-            //cmd.Parameters.Add("@CustRoutNo", SqlDbType.Int).Value = custRouteNo;
+            cmd.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = orderdate;
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.ExecuteNonQuery();
@@ -71,7 +67,7 @@ namespace TropicalServer.UI
             return ds;
         }
 
-        private DataSet deleteItemData(string procedure, string orderTracking,
+        private DataSet deleteItemData(string procedure, 
             DateTime orderDate, int custNo)
         {
             string con = System.Configuration.ConfigurationManager.
@@ -80,7 +76,6 @@ namespace TropicalServer.UI
             sqlcon.Open();
 
             SqlCommand cmd = new SqlCommand(procedure, sqlcon);
-            cmd.Parameters.Add("@OrderTrackingNo", SqlDbType.VarChar).Value = orderTracking;
             cmd.Parameters.Add("@OrderDate", SqlDbType.DateTime).Value = orderDate;
             cmd.Parameters.Add("@CustNumber", SqlDbType.Int).Value = custNo;
            
@@ -94,24 +89,17 @@ namespace TropicalServer.UI
 
             return ds;
         }
-    
-
-        protected void Unnamed_Click(object sender, EventArgs e)
-        {
-            
-        }
-
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
-            dataBind();
+            filterData();
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridView1.EditIndex = -1;
-            dataBind();
+            filterData();
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -119,57 +107,83 @@ namespace TropicalServer.UI
             int index = GridView1.EditIndex;
             GridViewRow row = GridView1.Rows[index];
             string orderTracking = ((TextBox)row.FindControl("trackingtbx")).Text;
-            //DateTime orderDate = Convert.ToDateTime(GridView1.Rows[e.RowIndex].FindControl("orderDate").ToString());
             string custID = ((Label)GridView1.Rows[e.RowIndex].FindControl("CustIDlbl")).Text;
-            //string custName = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("CustName")).Text;
-            //string custAddress = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("CustAddress")).Text;
-            //string custRoute = ((TextBox)GridView1.Rows[e.RowIndex].FindControl("CustRoute")).Text;
+            DateTime order_date = Convert.ToDateTime(((TextBox)row.FindControl("orderDatetbx")).Text);
 
-            updateItemData("updateOrderCustomer", orderTracking, /*orderDate,*/Convert.ToInt32(custID)/*, custName, custAddress, Convert.ToInt32(custRoute)*/);
+            updateItemData("updateOrderCustomer", orderTracking, order_date, Convert.ToInt32(custID));
             GridView1.EditIndex = -1;
-            dataBind();
-        }
 
-        //protected void MsgBox(string msg)
-        //{
-        //    Page.ClientScript.RegisterStartupScript(Page.GetType(), "Message Box", "<script language='javascript'>alert('" + msg + "')</script>");
-        //}
+            filterData();
+        }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int index = e.RowIndex;
             GridViewRow row = GridView1.Rows[index];
-            string orderTracking = ((Label)row.FindControl("trackinglbl")).Text;
             string custID = ((Label)GridView1.Rows[e.RowIndex].FindControl("CustIDlbl")).Text;
-            //MsgBox(((Label)GridView1.Rows[e.RowIndex].FindControl("orderdate")).Text);
             string date = ((Label)GridView1.Rows[e.RowIndex].FindControl("orderdate")).Text;
             DateTime orderdate = DateTime.Parse(date);
-            //GridView1
-            deleteItemData("deleteOrder", orderTracking, orderdate, Convert.ToInt32(custID));
-            dataBind();
+            deleteItemData("deleteOrder", orderdate, Convert.ToInt32(custID));
+
+            //dataBind();
+            filterData();
         }
 
-        //protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        //{
-        //    if(e.CommandName == "View")
-        //    {
-        //        int index = Convert.ToInt32(e.CommandArgument);
-        //        GridViewRow row = GridView1.Rows[index];
-        //        try
-        //        {
-        //            trackingId.Text = (GridView1.SelectedRow.FindControl("trackinglbl") as Label).Text;
-        //        }
-        //        catch
-        //        {
-        //            trackingId.Text = " ";
-        //        }
+        private void filterData()
+        {
+            if (datefilter.SelectedValue==""&& tb_custID.Text == "" && tb_custName.Text == "" && manager.SelectedValue=="")
+            {
+                dataBind();
+            }
+            else
+            {
                 
-                
-        //    }
-        //}
+                string custName = tb_custName.Text;
+                string managerName = manager.SelectedValue;
+                string date_filter = datefilter.SelectedValue;
+                DateTime before = DateTime.Now;
+
+                switch (date_filter)
+                {
+                    case "":
+                        before = DateTime.Now.AddYears(-100);
+                        break;
+                    case "today":
+                        before = DateTime.Today.AddMinutes(-1);
+                        break;
+                    case "last7days":
+                        before = DateTime.Now.AddDays(-7);
+                        break;
+                    case "last1month":
+                        before = DateTime.Now.AddMonths(-1);
+                        break;
+                    case "last6months":
+                        before = DateTime.Now.AddMonths(-6);
+                        break;
+                }
+
+                if (tb_custID.Text == "")
+                {
+                    int custID = -1;
+                    DataSet itemData = filterItemData("filterOrder", custID, custName,managerName, before);
+
+                    GridView1.DataSource = itemData;
+                    GridView1.DataBind();
+                }
+                else
+                {
+                    int custID = Convert.ToInt32(tb_custID.Text);
+                    DataSet itemData = filterItemData("filterOrder", custID, custName, managerName, before);
+
+                    GridView1.DataSource = itemData;
+                    GridView1.DataBind();
+                }
+            }
+        }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            trackingId.Text = (GridView1.SelectedRow.FindControl("trackinglbl") as Label).Text;
             lblOrderDate.Text = (GridView1.SelectedRow.FindControl("orderdate") as Label).Text;
             lblCustID.Text = (GridView1.SelectedRow.FindControl("CustIDlbl") as Label).Text;
             lblCustName.Text = (GridView1.SelectedRow.FindControl("CustNamelbl") as Label).Text;
@@ -177,5 +191,36 @@ namespace TropicalServer.UI
             lblRoute.Text = (GridView1.SelectedRow.FindControl("routelbl") as Label).Text;
             mpe.Show();
         }
+
+
+        private DataSet filterItemData(string procedure, int custID, string custName, string custManager, DateTime dateType)
+        {
+            string con = System.Configuration.ConfigurationManager.
+                ConnectionStrings["SampleCon"].ConnectionString;
+            SqlConnection sqlcon = new SqlConnection(con);
+            sqlcon.Open();
+
+            SqlCommand cmd = new SqlCommand(procedure, sqlcon);
+            cmd.Parameters.Add("@custID", SqlDbType.Int).Value = custID;
+            cmd.Parameters.Add("@custName", SqlDbType.VarChar).Value = custName;
+            cmd.Parameters.Add("@custManager", SqlDbType.VarChar).Value = custManager;
+            cmd.Parameters.Add("@custDate", SqlDbType.VarChar).Value = dateType;
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            sqlcon.Close();
+
+            return ds;
+        }
+
+        protected void Unnamed_TextChanged(object sender, EventArgs e)
+        {
+            filterData();
+        }
+
     }
 }

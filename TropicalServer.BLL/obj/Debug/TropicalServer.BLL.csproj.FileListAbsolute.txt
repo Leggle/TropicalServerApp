@@ -26,3 +26,10 @@ C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.BLL\bin\Debug\Tropi
 C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.BLL\obj\Debug\TropicalServer.BLL.csprojResolveAssemblyReference.cache
 C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.BLL\obj\Debug\TropicalServer.BLL.dll
 C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.BLL\obj\Debug\TropicalServer.BLL.pdb
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.BLL\bin\Debug\TropicalServer.BLL.dll
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.BLL\bin\Debug\TropicalServer.BLL.pdb
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.BLL\bin\Debug\TropicalServer.DAL.dll
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.BLL\bin\Debug\TropicalServer.DAL.pdb
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.BLL\obj\Debug\TropicalServer.BLL.csprojResolveAssemblyReference.cache
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.BLL\obj\Debug\TropicalServer.BLL.dll
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.BLL\obj\Debug\TropicalServer.BLL.pdb

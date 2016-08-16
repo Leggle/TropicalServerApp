@@ -91,7 +91,6 @@ namespace TropicalServer.UI
 
             if (Cache["ItemData"] != null)
             {
-               // MsgBox("Loading from cache!");
                 DataSet item = (DataSet)Cache["ItemData"];
                 DataTable itemTable;
 
@@ -104,9 +103,6 @@ namespace TropicalServer.UI
                 {
                     itemTable = new DataTable();
                 }
-
-
-                //MsgBox(""+ itemTable.Rows.Count);
 
                 GridView1.DataSource = itemTable;
                 GridView1.DataBind();

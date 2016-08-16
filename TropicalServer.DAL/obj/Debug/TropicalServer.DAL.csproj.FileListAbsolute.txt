@@ -18,3 +18,8 @@ C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\bin\Debug\Tropi
 C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.dll
 C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.pdb
 C:\Users\wht\Desktop\MS.NET\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.csprojResolveAssemblyReference.cache
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.DAL\bin\Debug\TropicalServer.DAL.dll
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.DAL\bin\Debug\TropicalServer.DAL.pdb
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.csprojResolveAssemblyReference.cache
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.dll
+C:\Users\wht\Desktop\HTML\TropicalServerApp\TropicalServer.DAL\obj\Debug\TropicalServer.DAL.pdb

@@ -30,7 +30,7 @@
     </asp:Repeater>
         </div>
     <div class="chartdisplay" style="overflow:scroll">
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true" 
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true" ShowHeaderWhenEmpty="true"
             OnPageIndexChanging="GridView1_PageIndexChanging" AllowPaging="True" PageSize="5" >
              <PagerStyle CssClass="dataGrid" />
             <HeaderStyle CssClass="chartHeaderStyle" />
